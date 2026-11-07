@@ -1,8 +1,6 @@
-version: '3.8'
-
 services:
   postgres:
-    image: postgres:18-alpine
+    image: postgres:16-alpine
     container_name: articles_postgres
     environment:
       POSTGRES_DB: articles_db
@@ -11,7 +9,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/
     networks:
       - articles_network
     healthcheck:
