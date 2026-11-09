@@ -24,11 +24,11 @@ exports.getArticles = async (req, res, next) => {
             }]
         });
 
-        const articleWithCommetCount = articles.map((article) => ({
+        const articleWithCommentCount = articles.map((article) => ({
             ...article.toJSON(),
             commentsCount: article.comments ? article.comments.length : 0
         }))
-        res.status(200).json(articleWithCommetCount);
+        res.status(200).json(articleWithCommentCount);
     } catch (error) {
         next(error);
     }
