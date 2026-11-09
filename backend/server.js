@@ -3,6 +3,7 @@ const express = require("express")
 const cors = require("cors")
 const { sequelize } = require("./models");
 const articleRoutes = require("./routes/articleRoutes");
+const commentRoutes = require("./routes/commentRoutes");
 const errorHandler = require("./middlewares/errorHandler");
 
 const app = express();
@@ -16,7 +17,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/article', articleRoutes);
-
+app.use('article/:articleId/comment', commentRoutes);
 
 app.use(errorHandler);
 
