@@ -10,10 +10,17 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       content: {
+        allowNull: false,
         type: Sequelize.TEXT
       },
       articleId: {
-        type: Sequelize.INTEGER
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'articles',
+          key: 'id'
+        }
       },
       createdAt: {
         allowNull: false,
