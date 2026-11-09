@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/article', articleRoutes);
-app.use('article/:articleId/comment', commentRoutes);
+app.use('/article/:articleId/comment', commentRoutes);
 
 app.use(errorHandler);
 

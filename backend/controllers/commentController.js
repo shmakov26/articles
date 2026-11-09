@@ -2,7 +2,7 @@ const { Article, Comment } = require('../models');
 
 exports.createComment = async (req, res, next) => {
     try {
-        const { id: articleId } = req.params;
+        const { articleId } = req.params;
         const { content } = req.body;
 
         const article = await Article.findByPk(articleId);
@@ -28,7 +28,7 @@ exports.createComment = async (req, res, next) => {
 
 exports.getComments = async (req, res, next) => {
     try {
-        const { id: articleId } = req.params;
+        const { articleId } = req.params;
 
         const article = await Article.findByPk(articleId);
 
@@ -48,7 +48,7 @@ exports.getComments = async (req, res, next) => {
 
 exports.getCommentById = async (req, res, next) => {
     try {
-        const { id: articleId, commentId } = req.params;
+        const { articleId, commentId } = req.params;
 
         const article = await Article.findByPk(articleId);
 
@@ -75,10 +75,10 @@ exports.getCommentById = async (req, res, next) => {
 
 exports.updateCommentById = async (req, res, next) => {
     try {
-        const { id: articleId, commentId } = req.params;
+        const { articleId, commentId } = req.params;
         const { content } = req.body;
 
-        const article = await Article.findByPk(id);
+        const article = await Article.findByPk(articleId);
 
         if (!article) {
             return res.status(404).json({error: 'article not found'});
@@ -96,7 +96,7 @@ exports.updateCommentById = async (req, res, next) => {
         }
 
         if (content !== undefined) {
-            article.content = content;
+            comment.content = content;
         }
 
         await comment.save();
@@ -109,9 +109,9 @@ exports.updateCommentById = async (req, res, next) => {
 
 exports.deleteCommentById = async (req, res, next) => {
     try {
-        const { id: articleId, commentId } = req.params;
+        const { articleId, commentId } = req.params;
 
-        const article = await Article.findByPk(id);
+        const article = await Article.findByPk(articleId);
 
         if (!article) {
             return res.status(404).json({error: 'article not found'});
