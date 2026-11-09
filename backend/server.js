@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express")
 const cors = require("cors")
 const { sequelize } = require("./models");
-const articleRouters = require("./routes/articleRoutes");
+const articleRoutes = require("./routes/articleRoutes");
 const errorHandler = require("./middlewares/errorHandler");
 
 const app = express();
@@ -16,6 +16,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/article', articleRouters);
+
 
 app.use(errorHandler);
 
