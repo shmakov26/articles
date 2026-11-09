@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
     res.json({ message: 'API is running...' });
 });
 
-app.use('/article', articleRouters);
+app.use('/article', articleRoutes);
 
 
 app.use(errorHandler);
