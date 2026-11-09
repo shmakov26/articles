@@ -39,6 +39,21 @@ services:
       - ./backend:/app
       - /app/node_modules
 
+  frontend:
+    build: ./frontend
+    container_name: articles_frontend
+    ports:
+      - "8080:8080"
+    environment:
+      - VITE_API_URL=http://backend:3000
+    depends_on:
+      - backend
+    networks:
+      - articles_network
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+
 volumes:
   postgres_data:
 
