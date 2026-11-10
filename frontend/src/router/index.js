@@ -12,17 +12,17 @@ const routes = [
         component: () => import("../views/ArticlesList.vue"),
     },
     {
-        path: "/articles/new",
+        path: "/article/new",
         name: "ArticleCreate",
         component: () => import("../views/ArticleForm.vue"),
     },
     {
-        path: "/articles/:id/edit",
+        path: "/article/:id/edit",
         name: "ArticleEdit",
         component: () => import("../views/ArticleForm.vue"),
     },
     {
-        path: "/articles/:id",
+        path: "/article/:id",
         name: "ArticleView",
         component: () => import("../views/ArticleView.vue"),
     },

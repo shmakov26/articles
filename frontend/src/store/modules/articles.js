@@ -38,7 +38,7 @@ export default {
         async fetchArticle({ commit }, id) {
             commit('SET_LOADING', true)
             try {
-                const response = await articlesService.getByID(id)
+                const response = await articlesService.getById(id)
                 commit('SET_CURRENT_ARTICLE', response.data)
                 commit('SET_ERROR', null)
             } catch (error) {
@@ -69,7 +69,7 @@ export default {
         },
         async deleteArticle({ commit }, id) {
             try {
-                await articlesService.delete(article)
+                await articlesService.delete(id)
                 commit('SET_ERROR', null)
             } catch (error) {
                 commit('SET_ERROR', error.message)
